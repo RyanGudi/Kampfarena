@@ -12,6 +12,8 @@ public abstract class Codemon {
     protected List<Attack> attacks;
     protected int exp;
     protected int expCap;
+    protected int level;
+    protected boolean evolved;
 
     public Codemon(int attack, int defense, int health, List<Attack> attacks, int expCap) {
         this.attack = attack;
@@ -19,6 +21,7 @@ public abstract class Codemon {
         this.health = health;
         this.attacks = attacks;
         this.expCap = expCap;
+        evolved = false;
     }
 
     public void displayStats() {
@@ -29,6 +32,18 @@ public abstract class Codemon {
                             "\nHealth: " + health +
                             "\nAttacks: " + attacks +
                             "\nExperience: " + exp +
+                            "\nLevel: " + level +
+                            "\nEvolved: " + evolved +
                             "\nExperience Cap: " + expCap);
     }
+
+    public void gainExp(int num) {
+        exp += num;
+        if(exp >= expCap) {
+            levelUp();
+        }
+    }
+
+    public abstract void levelUp();
+    public abstract void evolve();
 }

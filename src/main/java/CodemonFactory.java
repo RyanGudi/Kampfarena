@@ -10,7 +10,7 @@ public class CodemonFactory {
         int health;
         List<Attack> attacks = new ArrayList<Attack>();
         int expCap = 100;
-        
+
         switch(codemonType) {
             case "fire":
             attack = 10;
@@ -18,14 +18,14 @@ public class CodemonFactory {
             health = 17;
             return new Firemon(attack, defense, health, attacks, expCap);
             case "water":
-            attack = 5;
-            defense = 10;
+            attack = 7;
+            defense = 7;
             health = 20;
             return new Watermon(attack, defense, health, attacks, expCap);
             case "grass":
             attack = 5;
             defense = 10;
-            health = 20;
+            health = 25;
             return new Grassmon(attack, defense, health, attacks, expCap);
             default:
             throw new IllegalArgumentException("Invalid Codemon type" + codemonType);

@@ -1,9 +1,13 @@
+import codemons.*;
+
 public class Main {
 
 
 
     
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        Codemon firemon = CodemonFactory.createCodemon("fire");
+
+        firemon.displayStats();
     }
 }

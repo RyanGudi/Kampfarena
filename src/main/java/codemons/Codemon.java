@@ -13,9 +13,7 @@ public abstract class Codemon {
     protected int exp;
     protected int expCap;
 
-    public Codemon(String name, String type, int attack, int defense, int health, List<Attack> attacks, int expCap) {
-        this.name = name;
-        this.type = type;
+    public Codemon(int attack, int defense, int health, List<Attack> attacks, int expCap) {
         this.attack = attack;
         this.defense = defense;
         this.health = health;
@@ -23,5 +21,14 @@ public abstract class Codemon {
         this.expCap = expCap;
     }
 
-    public abstract void displayStats();
+    public void displayStats() {
+        System.out.println("Name: " + name +
+                            "\nType: " + type +
+                            "\nAttack: " + attack +
+                            "\nDefense: " + defense +
+                            "\nHealth: " + health +
+                            "\nAttacks: " + attacks +
+                            "\nExperience: " + exp +
+                            "\nExperience Cap: " + expCap);
+    }
 }

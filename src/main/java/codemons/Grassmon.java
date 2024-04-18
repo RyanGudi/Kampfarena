@@ -5,8 +5,8 @@ import attacks.Attack;
 
 public class Grassmon extends Codemon{
     
-    public Grassmon(int attack, int defense, int health, List<Attack> attacks, int expCap) {
-        super(attack, defense, health, attacks, expCap);
+    public Grassmon(int attack, int defense, int health, int expCap) {
+        super(attack, defense, health, expCap);
         name = "Grassmon";
         type = "grass";
     }
@@ -16,11 +16,9 @@ public class Grassmon extends Codemon{
         attack += 3;
         defense += 5;
         health += 12;
-        while(exp >= expCap) {
-            exp -= expCap;
-            level++;
-        }
-        if(level >= 5 && !evolved) {
+        exp -= expCap;
+        level++;
+        if(level == 5) {
             evolve();
         }
     }
@@ -30,6 +28,6 @@ public class Grassmon extends Codemon{
         attack += 9;
         defense += 15;
         health += 36;
-        evolved = true;
+        hp = health;
     }
 }

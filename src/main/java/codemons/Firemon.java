@@ -5,8 +5,8 @@ import attacks.Attack;
 
 public class Firemon extends Codemon{
     
-    public Firemon(int attack, int defense, int health, List<Attack> attacks, int expCap) {
-        super(attack, defense, health, attacks, expCap);
+    public Firemon(int attack, int defense, int health, int expCap) {
+        super(attack, defense, health, expCap);
         name = "Firemon";
         type = "fire";
     }
@@ -16,11 +16,9 @@ public class Firemon extends Codemon{
         attack += 5;
         defense += 3;
         health += 10;
-        while(exp >= expCap) {
-            exp -= expCap;
-            level++;
-        }
-        if(level >= 5 && !evolved) {
+        exp -= expCap;
+        level++;
+        if(level == 5) {
             evolve();
         }
     }
@@ -30,6 +28,6 @@ public class Firemon extends Codemon{
         attack += 15;
         defense += 9;
         health += 30;
-        evolved = true;
+        hp = health;
     }
 }

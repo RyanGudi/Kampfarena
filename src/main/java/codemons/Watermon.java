@@ -5,8 +5,8 @@ import attacks.Attack;
 
 public class Watermon extends Codemon{
     
-    public Watermon(int attack, int defense, int health, List<Attack> attacks, int expCap) {
-        super(attack, defense, health, attacks, expCap);
+    public Watermon(int attack, int defense, int health, int expCap) {
+        super(attack, defense, health, expCap);
         name = "Watermon";
         type = "water";
     }
@@ -16,11 +16,9 @@ public class Watermon extends Codemon{
         attack += 3;
         defense += 3;
         health += 15;
-        while(exp >= expCap) {
-            exp -= expCap;
-            level++;
-        }
-        if(level >= 5 && !evolved) {
+        exp -= expCap;
+        level++;
+        if(level == 5) {
             evolve();
         }
     }
@@ -30,6 +28,6 @@ public class Watermon extends Codemon{
         attack += 9;
         defense += 9;
         health += 45;
-        evolved = true;
+        hp = health;
     }
 }

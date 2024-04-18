@@ -13,12 +13,12 @@ public class Main {
 
 
         firemon.displayStats();
-        // firemon.gainExp(600);
-        // firemon.displayStats();
-        watermon.displayStats();
+        firemon.gainExp(600);
+        firemon.displayStats();
+        //watermon.displayStats();
         // watermon.gainExp(600);
         // watermon.displayStats();
-        grassmon.displayStats();
+        //grassmon.displayStats();
         // grassmon.gainExp(600);
         // grassmon.displayStats();
     }

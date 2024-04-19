@@ -1,5 +1,5 @@
+package attacks;
 import codemons.*;
-import attacks.*;
 
 public class AttackDecorator extends Codemon{
     protected Codemon codemon;

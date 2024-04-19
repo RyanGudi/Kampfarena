@@ -1,5 +1,5 @@
 import codemons.*;
-import attacks.Attack;
+import attacks.*;
 
 public class Main {
 

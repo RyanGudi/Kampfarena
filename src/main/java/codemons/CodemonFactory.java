@@ -1,5 +1,6 @@
-import codemons.*;
-import attacks.Attack;
+package codemons;
+
+import attacks.*;
 
 public class CodemonFactory {
     public static Codemon createCodemon(String codemonType) {

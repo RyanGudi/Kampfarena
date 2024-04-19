@@ -1,7 +1,6 @@
 package codemons;
 
-import java.util.List;
-import attacks.Attack;
+
 
 public class Firemon extends Codemon{
     

@@ -1,10 +1,9 @@
 import codemons.*;
 import attacks.Attack;
-import java.util.List;
-import java.util.ArrayList;
 
 public class CodemonFactory {
     public static Codemon createCodemon(String codemonType) {
+        Codemon codemon;
         int attack;
         int defense;
         int health;
@@ -12,23 +11,27 @@ public class CodemonFactory {
 
         switch(codemonType) {
             case "fire":
-            attack = 10;
-            defense = 5;
-            health = 17;
-            return new Firemon(attack, defense, health, expCap);
+                attack = 10;
+                defense = 5;
+                health = 17;
+                codemon = new Firemon(attack, defense, health, expCap);
+                break;
             case "water":
-            attack = 7;
-            defense = 7;
-            health = 20;
-            return new Watermon(attack, defense, health, expCap);
+                attack = 7;
+                defense = 7;
+                health = 20;
+                codemon = new Watermon(attack, defense, health, expCap);
+                break;
             case "grass":
-            attack = 5;
-            defense = 10;
-            health = 25;
-            return new Grassmon(attack, defense, health, expCap);
+                attack = 5;
+                defense = 10;
+                health = 25;
+                codemon = new Grassmon(attack, defense, health, expCap);
+                break;
             default:
-            throw new IllegalArgumentException("Invalid Codemon type" + codemonType);
+                throw new IllegalArgumentException("Invalid Codemon type" + codemonType);
         }
-
+        codemon = new AttackDecorator(codemon, new Attack(codemon.getType(), codemon.getLevel()));
+        return codemon;
     }    
 }

@@ -12,13 +12,6 @@ public class AttackDecorator extends Codemon{
         addAttack(newAttack);
     }
 
-    // public void init() {
-    //     type = codemon.getType();
-    //     hp = codemon.getHp();
-    //     level = codemon.getLevel();
-    //     fainted = codemon.isFainted();
-    //     exp = codemon.getExp();
-    // }
     @Override
     public void addAttack(Attack attack) {
         codemon.addAttack(attack);

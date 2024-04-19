@@ -50,10 +50,10 @@ public abstract class Codemon {
     }
 
     public void addAttack(Attack attack) {
-        if(attacks.size() < 4) {
+        if(attacks.size() < 4 && !attacks.contains(attack)) {
             attacks.add(attack);
         } else {
-            System.out.println("Cant learn anymore moves");
+            return;
         }
     }
 

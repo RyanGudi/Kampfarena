@@ -16,31 +16,31 @@ public class Main {
         System.out.println("Original");
         firemon.displayStats();
 
-        for(int i = 0; i < 8; i++) {
+        for(int i = 0; i < 7; i++) {
             System.out.println("New Firemon");
-            Codemon firemon2 = new AttackDecorator(firemon, new Attack(firemon.getType(), firemon.getLevel()));
-            firemon2.gainExp(601);
-            firemon2.displayStats();
+            firemon.gainExp(100);
+            firemon = new AttackDecorator(firemon, new Attack(firemon.getType(), firemon.getLevel()));
+            firemon.displayStats();
         }
         
         System.out.println("Original");
         watermon.displayStats();
 
-        for(int i = 0; i < 8; i++) {
+        for(int i = 0; i < 7; i++) {
             System.out.println("New Firemon");
-            Codemon watermon2 = new AttackDecorator(watermon, new Attack(watermon.getType(), watermon.getLevel()));
-            watermon2.gainExp(601);
-            watermon2.displayStats();
+            watermon.gainExp(100);
+            watermon = new AttackDecorator(watermon, new Attack(watermon.getType(), watermon.getLevel()));
+            watermon.displayStats();
         }
 
         System.out.println("Original");
         grassmon.displayStats();
 
-        for(int i = 0; i < 8; i++) {
+        for(int i = 0; i < 7; i++) {
             System.out.println("New Firemon");
-            Codemon grassmon2 = new AttackDecorator(grassmon, new Attack(grassmon.getType(), grassmon.getLevel()));
-            grassmon2.gainExp(601);
-            grassmon2.displayStats();
+            grassmon.gainExp(100);
+            grassmon = new AttackDecorator(grassmon, new Attack(grassmon.getType(), grassmon.getLevel()));
+            grassmon.displayStats();
         }
         
     }

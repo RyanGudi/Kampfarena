@@ -10,10 +10,10 @@ public class Attack {
     protected String[] grassAttacks = {"Razor Leaf", "Solar Beam", "Energy Ball", "Vine Whip"};
     
     public Attack(String type, int level) {
+        int levelMod = (level - 1) / 5;
         if(level > 20) {
             return;
         }
-        int levelMod = (level - 1) / 5;
         if(type.equals("fire")) {
             name = fireAttacks[levelMod];
         } else if(type.equals("water")) {
@@ -49,6 +49,18 @@ public class Attack {
             System.out.println("Something went wrong selecting a move: " + level);
             return;
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        Attack other = (Attack) obj;
+        return power == other.power &&
+               crit == other.crit &&
+               accuracy == other.accuracy &&
+               name.equals(other.name);
     }
 
     @Override

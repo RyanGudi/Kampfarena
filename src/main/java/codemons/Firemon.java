@@ -16,7 +16,6 @@ public class Firemon extends Codemon{
         attack += 5;
         defense += 3;
         health += 10;
-        exp -= expCap;
         level++;
         if(level == 5) {
             evolve();

@@ -16,7 +16,6 @@ public class Watermon extends Codemon{
         attack += 3;
         defense += 3;
         health += 15;
-        exp -= expCap;
         level++;
         if(level == 5) {
             evolve();

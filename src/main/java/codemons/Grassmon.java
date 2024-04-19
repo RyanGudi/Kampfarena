@@ -16,7 +16,6 @@ public class Grassmon extends Codemon{
         attack += 3;
         defense += 5;
         health += 12;
-        exp -= expCap;
         level++;
         if(level == 5) {
             evolve();

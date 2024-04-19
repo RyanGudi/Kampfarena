@@ -37,13 +37,15 @@ public abstract class Codemon {
                             "\nAttacks: " + attacks +
                             "\nExperience: " + exp +
                             "\nLevel: " + level +
-                            "\nExperience Cap: " + expCap);
+                            "\nExperience Cap: " + expCap +
+                            "\n");
     }
 
     public void gainExp(int num) {
         exp += num;
         while(exp >= expCap) {
             levelUp();
+            exp -= expCap;
         }
     }
 
@@ -72,5 +74,25 @@ public abstract class Codemon {
 
     public int getExpCap() {
         return expCap;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public boolean isFainted() {
+        return fainted;
+    }
+
+    public int getExp() {
+        return exp;
     }
 }

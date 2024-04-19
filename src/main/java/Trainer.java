@@ -35,10 +35,10 @@ public class Trainer {
     }
 
     public boolean hasAliveCodemons() {
-        boolean alive = true;
+        boolean alive = false;
         for(Codemon codemon: team) {
-            if(codemon.isFainted()) {
-                alive = false;
+            if(!codemon.isFainted()) {
+                alive = true;
             }
         }
         return alive;
@@ -62,6 +62,13 @@ public class Trainer {
             }
         }
         return null;
+    }
+
+    public void gainExpForAllCodemons(int exp) {
+        //System.out.println(name + " gained " + exp + "exp.");
+        for (Codemon codemon : team) {
+            codemon.gainExp(exp);
+        }
     }
 
 }

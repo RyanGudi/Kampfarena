@@ -35,7 +35,7 @@ public class Trainer {
     }
 
     public boolean hasAliveCodemons() {
-        boolean alive = false;
+        boolean alive = true;
         for(Codemon codemon: team) {
             if(codemon.isFainted()) {
                 alive = false;
@@ -53,6 +53,15 @@ public class Trainer {
 
     public String getName() {
         return name;
+    }
+
+    public Codemon getCurrentCodemon() {
+        for (Codemon codemon : team) {
+            if (!codemon.isFainted()) {
+                return codemon;
+            }
+        }
+        return null;
     }
 
 }

@@ -11,15 +11,20 @@ public class Main {
         // Codemon watermon = CodemonFactory.createCodemon("water");
         // Codemon grassmon = CodemonFactory.createCodemon("grass");
         
-        Trainer josh = new Trainer("Josh");
-        josh.printTeam();
         
-
+        Trainer red = new Trainer("Red");
+        red.printTeam();
+        Trainer blue = new Trainer("Blue");
+        blue.printTeam();
 
         
-
-
-
+        System.out.println();
+        Game game = new Game(red, blue);
+        game.start(); 
+        red.printTeam();
+        blue.printTeam();
+        
+        
 
 
 

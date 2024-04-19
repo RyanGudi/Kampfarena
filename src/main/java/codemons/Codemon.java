@@ -2,7 +2,8 @@ package codemons;
 
 import java.util.List;
 import java.util.ArrayList;
-import attacks.Attack;
+import attacks.*;
+import java.util.Random;
 
 public abstract class Codemon {
     protected String name;
@@ -59,6 +60,24 @@ public abstract class Codemon {
 
     public abstract void levelUp();
     public abstract void evolve();
+
+    public Attack getRandomMove() {
+        if (attacks.isEmpty()) {
+            return null;
+        } else {
+            Random rand = new Random();
+            int randomIndex = rand.nextInt(attacks.size());
+            return attacks.get(randomIndex);
+        }
+    }
+
+    public void takeDamage(int damage) {
+        hp -= damage;
+        if(hp <= 0) {
+            fainted = true;
+            hp = 0;
+        }
+    }
 
     public int getAttack() {
         return attack;

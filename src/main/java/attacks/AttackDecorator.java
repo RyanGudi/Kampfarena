@@ -24,6 +24,16 @@ public class AttackDecorator extends Codemon{
     }
 
     @Override
+    public Attack getRandomMove() {
+        return codemon.getRandomMove();
+    }
+
+    @Override
+    public void takeDamage(int damage) {
+        codemon.takeDamage(damage);
+    }
+
+    @Override
     public void levelUp(){ 
         codemon.levelUp();
     }
@@ -90,6 +100,12 @@ public class AttackDecorator extends Codemon{
 
     @Override
     public String toString() {
-        return codemon.getName() + " (Level:  " + codemon.getLevel() +")";
+        String response = codemon.getName() + " (Level:  " + codemon.getLevel() +") - ";
+        if(codemon.isFainted()) {
+            response += "Fainted";
+        }else {
+            response += "Healthy";
+        }
+        return response;
     }
 }

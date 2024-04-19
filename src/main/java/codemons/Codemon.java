@@ -92,7 +92,15 @@ public abstract class Codemon {
         return fainted;
     }
 
+    public void setFainted(boolean fainted) {
+        this.fainted = fainted;
+    }
+
     public int getExp() {
         return exp;
+    }
+
+    public String getName() {
+        return name;
     }
 }

@@ -74,9 +74,22 @@ public class AttackDecorator extends Codemon{
     }
 
     @Override
+    public void setFainted(boolean fainted) {
+        codemon.setFainted(fainted);
+    }
+
+    @Override
     public int getExp() {
         return codemon.getExp();
     }
 
-    
+    @Override
+    public String getName() {
+        return codemon.getName();
+    }
+
+    @Override
+    public String toString() {
+        return codemon.getName() + " (Level:  " + codemon.getLevel() +")";
+    }
 }

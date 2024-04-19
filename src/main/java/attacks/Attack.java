@@ -5,11 +5,13 @@ public class Attack {
     protected int power;
     protected int crit;
     protected int accuracy;
+    protected String type;
     protected String[] fireAttacks = {"Firepunch", "Inferno", "Flamethrower", "Fire Blast"};
     protected String[] waterAttacks = {"Hydro Pump", "Bubble Beam", "Water Pulse", "Aqua Tail"};
     protected String[] grassAttacks = {"Razor Leaf", "Solar Beam", "Energy Ball", "Vine Whip"};
     
     public Attack(String type, int level) {
+        this.type = type;
         int levelMod = (level - 1) / 5;
         if(level > 20) {
             return;
@@ -82,5 +84,9 @@ public class Attack {
 
     public int getAccuracy() {
         return accuracy;
+    }
+
+    public String getType() {
+        return type;
     }
 }

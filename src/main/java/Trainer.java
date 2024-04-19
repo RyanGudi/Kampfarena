@@ -64,10 +64,27 @@ public class Trainer {
         return null;
     }
 
+    public Codemon getTopCodemon() {
+        return team.get(0);
+    }
+
     public void gainExpForAllCodemons(int exp) {
         //System.out.println(name + " gained " + exp + "exp.");
         for (Codemon codemon : team) {
             codemon.gainExp(exp);
+        }
+    }
+
+    public void healAllCodemons() {
+        for (Codemon codemon : team) {
+            codemon.setFainted(false);
+            codemon.setHp(codemon.getHealth());
+        }
+    }
+
+    public void setTeamLevel(int level) {
+        for (Codemon codemon : team) {
+            codemon.setLevel(level);
         }
     }
 

@@ -74,8 +74,18 @@ public class AttackDecorator extends Codemon{
     }
 
     @Override
+    public void setLevel(int level) {
+        codemon.setLevel(level);
+    }
+
+    @Override
     public int getHp() {
         return codemon.getHp();
+    }
+
+    @Override
+    public void setHp(int hp) {
+        codemon.setHp(hp);
     }
 
     @Override

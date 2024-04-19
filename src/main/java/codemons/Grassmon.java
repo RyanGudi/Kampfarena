@@ -12,12 +12,14 @@ public class Grassmon extends Codemon{
 
     @Override
     public void levelUp() {
-        attack += 3;
-        defense += 5;
-        health += 12;
-        level++;
-        if(level == 5) {
-            evolve();
+        if (level < levelCap) {
+            attack += 3;
+            defense += 5;
+            health += 12;
+            level++;
+            if(level == 5) {
+                evolve();
+            }
         }
     }
 

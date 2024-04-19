@@ -15,6 +15,7 @@ public abstract class Codemon {
     protected int exp;
     protected int expCap;
     protected int level;
+    protected int levelCap;
     protected int hp;
     protected boolean fainted;
 
@@ -26,6 +27,7 @@ public abstract class Codemon {
         this.expCap = expCap;
         hp = health;
         fainted = false;
+        levelCap = 100;
     }
 
     public void displayStats() {
@@ -44,10 +46,14 @@ public abstract class Codemon {
 
     public void gainExp(int num) {
         exp += num;
-        while(exp >= expCap) {
+    while(exp >= expCap) {
+        if (level < levelCap) {
             levelUp();
             exp -= expCap;
+        } else {
+            break;
         }
+    }
     }
 
     public void addAttack(Attack attack) {
@@ -103,8 +109,16 @@ public abstract class Codemon {
         return level;
     }
 
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     public int getHp() {
         return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
     public boolean isFainted() {

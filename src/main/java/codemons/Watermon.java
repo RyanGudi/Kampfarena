@@ -12,12 +12,14 @@ public class Watermon extends Codemon{
 
     @Override
     public void levelUp() {
-        attack += 3;
-        defense += 3;
-        health += 15;
-        level++;
-        if(level == 5) {
-            evolve();
+        if (level < levelCap) {
+            attack += 3;
+            defense += 3;
+            health += 15;
+            level++;
+            if(level == 5) {
+                evolve();
+            }
         }
     }
 

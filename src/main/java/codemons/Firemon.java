@@ -12,12 +12,14 @@ public class Firemon extends Codemon{
 
     @Override
     public void levelUp() {
-        attack += 5;
-        defense += 3;
-        health += 10;
-        level++;
-        if(level == 5) {
-            evolve();
+        if (level < levelCap) {
+            attack += 5;
+            defense += 3;
+            health += 10;
+            level++;
+            if(level == 5) {
+                evolve();
+            }
         }
     }
 

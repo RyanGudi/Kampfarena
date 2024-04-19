@@ -7,15 +7,18 @@ public class Battle {
     private Trainer player;
     private Trainer enemyTrainer;
     private Codemon wildCodemon;
+    private EventSingleton eventSingleton;
 
-    public Battle(Trainer player, Trainer enemyTrainer) {
+    public Battle(Trainer player, Trainer enemyTrainer, EventSingleton eventSingleton) {
         this.player = player;
         this.enemyTrainer = enemyTrainer;
+        this.eventSingleton = eventSingleton;
     }
 
-    public Battle(Trainer player, Codemon wildCodemon) {
+    public Battle(Trainer player, Codemon wildCodemon, EventSingleton eventSingleton) {
         this.player = player;
         this.wildCodemon = wildCodemon;
+        this.eventSingleton = eventSingleton;
     }
 
     public void start() {
@@ -77,12 +80,12 @@ public class Battle {
             System.out.println(playerCodemon.getName() + " used " + selectedMove.getName() + "!");
             int damage = calculateDamage(selectedMove, playerCodemon, wildCodemon);
             wildCodemon.takeDamage(damage);
-            System.out.println(wildCodemon.getName() + " took " + damage + " damage!");
+            System.out.println("Wild " + wildCodemon.getName() + " took " + damage + " damage!");
 
             // Switch to the wild codemon's turn
             if (!wildCodemon.isFainted()) {
                 selectedMove = wildCodemon.getRandomMove();
-                System.out.println(wildCodemon.getName() + " used " + selectedMove.getName() + "!");
+                System.out.println("Wild " + wildCodemon.getName() + " used " + selectedMove.getName() + "!");
                 damage = calculateDamage(selectedMove, wildCodemon, playerCodemon);
                 playerCodemon.takeDamage(damage);
                 System.out.println(playerCodemon.getName() + " took " + damage + " damage!");
@@ -120,31 +123,43 @@ public class Battle {
     }
 
     private double getTypeEffectiveness(String attackType, String defenseType) {
+        double effectiveness = 1.0;
     if (attackType.equals("grass")) {
         if (defenseType.equals("fire")) {
             System.out.println("Not very effective");
-            return 0.75; //Grass is not effective against fire
+            effectiveness = 0.75; //Grass is not effective against fire
         } else if (defenseType.equals("water")) {
             System.out.println("Super Effective!");
-            return 1.5; //Grass is super effective against water
+            effectiveness = 1.5; //Grass is super effective against water
         }
     } else if (attackType.equals("fire")) {
         if (defenseType.equals("grass")) {
             System.out.println("Super Effective!");
-            return 1.5; //Fire is super effective against grass
+            effectiveness = 1.5; //Fire is super effective against grass
         } else if (defenseType.equals("water")) {
             System.out.println("Not very effective");
-            return 0.75; //Fire is not effective against water
+            effectiveness = 0.75; //Fire is not effective against water
         }
     } else if (attackType.equals("water")) {
         if (defenseType.equals("grass")) {
             System.out.println("Not very effective");
-            return 0.75; //Water is not effective against grass
+            effectiveness = 0.75; //Water is not effective against grass
         } else if (defenseType.equals("fire")) {
             System.out.println("Super Effective!");
-            return 1.5; //Water is super effective against fire
+            effectiveness = 1.5; //Water is super effective against fire
         }
     }
-    return 1.0; //Default
+
+    if(eventSingleton.getWeatherCondition().equals("sunny") && attackType.equals("fire")) {
+        System.out.println("The fire was boosted by the scorching sun!");
+        effectiveness *= 1.25;
+    } else if (eventSingleton.getWeatherCondition().equals("rainy") && attackType.equals("water")) {
+        System.out.println("The water was boosted by the rainy weather!");
+        effectiveness *= 1.25;
+    }else if (eventSingleton.getWeatherCondition().equals("sunny") && attackType.equals("grass")) {
+        System.out.println("The grass was boosted by the sunny weather!");
+        effectiveness *= 1.25;
+    }
+    return effectiveness;
     }
 }

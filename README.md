@@ -2,22 +2,6 @@
 
 ScreenCast: https://youtu.be/n2TGFvrwPdM
 
-Spotbugs Report:
-
-
-![Spotbugs](https://github.com/RyanGudi/Kampfarena/blob/main/Spotbugs.PNG)
-
-Checkstyle Report:
-![Checkstyle](https://github.com/RyanGudi/Kampfarena/blob/main/Checkstyle.PNG)
-
-JUnit Report:
-![Junit](https://github.com/RyanGudi/Kampfarena/blob/main/JUnit.PNG)
-
-Jacoco Report:
-![Jacoco1](https://github.com/RyanGudi/Kampfarena/blob/main/Jacoco.PNG)
-![Jacoco2](https://github.com/RyanGudi/Kampfarena/blob/main/Jacoco2.PNG)
-
-
 Design Patterns
 
 Factory Design Pattern - Creates different types of Code-a-mons based on a string input
@@ -34,3 +18,18 @@ Singleton Design Pattern - Global instance of Day/Night/Weather cycles
 -Day/Night cycles
 -Each cycle should have its own weather event
 -Weather events boosts the corresponding code-a-mon's attack power
+
+Spotbugs Report:
+
+
+![Spotbugs](https://github.com/RyanGudi/Kampfarena/blob/main/Spotbugs.PNG)
+
+Checkstyle Report:
+![Checkstyle](https://github.com/RyanGudi/Kampfarena/blob/main/Checkstyle.PNG)
+
+JUnit Report:
+![Junit](https://github.com/RyanGudi/Kampfarena/blob/main/JUnit.PNG)
+
+Jacoco Report:
+![Jacoco1](https://github.com/RyanGudi/Kampfarena/blob/main/Jacoco.PNG)
+![Jacoco2](https://github.com/RyanGudi/Kampfarena/blob/main/Jacoco2.PNG)

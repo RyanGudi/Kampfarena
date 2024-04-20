@@ -2,8 +2,15 @@ package codemons;
 
 
 
-public class Grassmon extends Codemon{
+public class Grassmon extends Codemon {
     
+    /**
+     * Grass based codemon.
+     * @param attack attack
+     * @param defense defense
+     * @param health health
+     * @param expCap exp limit
+     */
     public Grassmon(int attack, int defense, int health, int expCap) {
         super(attack, defense, health, expCap);
         name = "Grassmon";
@@ -17,12 +24,16 @@ public class Grassmon extends Codemon{
             defense += 5;
             health += 12;
             level++;
-            if(level == 5) {
+            if (level == 5) {
                 evolve();
             }
         }
     }
 
+    /**
+     * Evolves grassmon to treemon.
+     * and boosts stats
+     */
     public void evolve() {
         name = "Treemon";
         attack += 9;

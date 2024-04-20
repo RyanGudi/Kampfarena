@@ -2,8 +2,15 @@ package codemons;
 
 
 
-public class Watermon extends Codemon{
+public class Watermon extends Codemon {
     
+    /**
+     * Water based codemon.
+     * @param attack attack
+     * @param defense defense
+     * @param health health
+     * @param expCap exp limit
+     */
     public Watermon(int attack, int defense, int health, int expCap) {
         super(attack, defense, health, expCap);
         name = "Watermon";
@@ -17,12 +24,16 @@ public class Watermon extends Codemon{
             defense += 3;
             health += 15;
             level++;
-            if(level == 5) {
+            if (level == 5) {
                 evolve();
             }
         }
     }
 
+    /**
+     * Evolves watermon to icemon.
+     * and boosts stats
+     */
     public void evolve() {
         name = "Icemon";
         attack += 9;

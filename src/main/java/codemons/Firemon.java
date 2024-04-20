@@ -2,8 +2,15 @@ package codemons;
 
 
 
-public class Firemon extends Codemon{
+public class Firemon extends Codemon {
     
+    /**
+     * Fire based codemon.
+     * @param attack attack
+     * @param defense defense
+     * @param health health
+     * @param expCap exp limit
+     */
     public Firemon(int attack, int defense, int health, int expCap) {
         super(attack, defense, health, expCap);
         name = "Firemon";
@@ -17,12 +24,16 @@ public class Firemon extends Codemon{
             defense += 3;
             health += 10;
             level++;
-            if(level == 5) {
+            if (level == 5) {
                 evolve();
             }
         }
     }
 
+    /**
+     * Evolves firemon to lavamon.
+     * and boosts stats
+     */
     public void evolve() {
         name = "Lavamon";
         attack += 15;

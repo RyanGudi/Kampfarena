@@ -1,8 +1,15 @@
 package codemons;
 
-import attacks.*;
+import attacks.Attack;
+import attacks.AttackDecorator;
 
 public class CodemonFactory {
+
+    /**
+     * Creates a new codemon from a given type.
+     * @param codemonType codemon type
+     * @return
+     */
     public static Codemon createCodemon(String codemonType) {
         Codemon codemon;
         int attack;
@@ -10,7 +17,7 @@ public class CodemonFactory {
         int health;
         int expCap = 100;
 
-        switch(codemonType) {
+        switch (codemonType) {
             case "fire":
                 attack = 10;
                 defense = 5;

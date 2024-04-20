@@ -10,23 +10,29 @@ public class Attack {
     protected String[] waterAttacks = {"Hydro Pump", "Bubble Beam", "Water Pulse", "Aqua Tail"};
     protected String[] grassAttacks = {"Razor Leaf", "Solar Beam", "Energy Ball", "Vine Whip"};
     
+    /**
+     * Creates a type of attack and initializes its stats.
+     * depending on the type and level of the codemon
+     * @param type type 
+     * @param level level
+     */
     public Attack(String type, int level) {
         this.type = type;
         int levelMod = (level - 1) / 5;
-        if(level > 20) {
+        if (level > 20) {
             return;
         }
-        if(type.equals("fire")) {
+        if (type.equals("fire")) {
             name = fireAttacks[levelMod];
-        } else if(type.equals("water")) {
+        } else if (type.equals("water")) {
             name = waterAttacks[levelMod];
-        } else if(type.equals("grass")) {
+        } else if (type.equals("grass")) {
             name = grassAttacks[levelMod];
-        }else {
+        } else {
             System.out.println("Not a valid type");
             return;
         }
-        switch(levelMod) {
+        switch (levelMod) {
             case 0:
                 power = 75;
                 accuracy = 100;
@@ -48,8 +54,8 @@ public class Attack {
                 crit = 15;
                 break;
             default:
-            System.out.println("Something went wrong selecting a move: " + level);
-            return;
+                System.out.println("Something went wrong selecting a move: " + level);
+                return;
         }
     }
 
@@ -59,10 +65,10 @@ public class Attack {
             return true;
         }
         Attack other = (Attack) obj;
-        return power == other.power &&
-               crit == other.crit &&
-               accuracy == other.accuracy &&
-               name.equals(other.name);
+        return power == other.power 
+                    && crit == other.crit 
+                    && accuracy == other.accuracy 
+                    && name.equals(other.name);
     }
 
     @Override

@@ -1,8 +1,8 @@
 package codemons;
 
-import java.util.List;
+import attacks.Attack;
 import java.util.ArrayList;
-import attacks.*;
+import java.util.List;
 import java.util.Random;
 
 public abstract class Codemon {
@@ -19,6 +19,13 @@ public abstract class Codemon {
     protected int hp;
     protected boolean fainted;
 
+    /**
+     * Initializes a new codemon with given stats.
+     * @param attack attack
+     * @param defense defense
+     * @param health health
+     * @param expCap exp limit
+     */
     public Codemon(int attack, int defense, int health, int expCap) {
         this.attack = attack;
         this.defense = defense;
@@ -30,34 +37,39 @@ public abstract class Codemon {
         levelCap = 100;
     }
 
+    /**
+     * Displays the entire stats of a codemon.
+     */
     public void displayStats() {
-        System.out.println("Name: " + name +
-                            "\nHP: " + hp +
-                            "\nType: " + type +
-                            "\nAttack: " + attack +
-                            "\nDefense: " + defense +
-                            "\nHealth: " + health +
-                            "\nAttacks: " + attacks +
-                            "\nExperience: " + exp +
-                            "\nLevel: " + level +
-                            "\nExperience Cap: " + expCap +
-                            "\n");
+        System.out.println("Name: " + name + "\nHP: " + hp + "\nType: "
+                         + type + "\nAttack: " + attack + "\nDefense: " 
+                         + defense + "\nHealth: " + health + "\nAttacks: " 
+                         + attacks + "\nExperience: " + exp + "\nLevel: " 
+                         + level + "\nExperience Cap: " + expCap + "\n");
     }
 
+    /**
+     * Gives exp to a codemon and levels up if possible.
+     * @param num number
+     */
     public void gainExp(int num) {
         exp += num;
-    while(exp >= expCap) {
-        if (level < levelCap) {
-            levelUp();
-            exp -= expCap;
-        } else {
-            break;
+        while (exp >= expCap) {
+            if (level < levelCap) {
+                levelUp();
+                exp -= expCap;
+            } else {
+                break;
+            }
         }
     }
-    }
 
+    /**
+     * Adds an attack to the moveset.
+     * @param attack attack
+     */
     public void addAttack(Attack attack) {
-        if(attacks.size() < 4 && !attacks.contains(attack)) {
+        if (attacks.size() < 4 && !attacks.contains(attack)) {
             attacks.add(attack);
         } else {
             return;
@@ -65,8 +77,13 @@ public abstract class Codemon {
     }
 
     public abstract void levelUp();
+    
     public abstract void evolve();
 
+    /**
+     * Returns random move from moveset.
+     * @return
+     */
     public Attack getRandomMove() {
         if (attacks.isEmpty()) {
             return null;
@@ -77,9 +94,13 @@ public abstract class Codemon {
         }
     }
 
+    /**
+     * Codemon takes damage and faints if hp hits 0.
+     * @param damage damage
+     */
     public void takeDamage(int damage) {
         hp -= damage;
-        if(hp <= 0) {
+        if (hp <= 0) {
             fainted = true;
             hp = 0;
         }

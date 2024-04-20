@@ -16,8 +16,12 @@ public class EventSingleton {
         weatherIndex = 0;
     }
 
+    /**
+     * Gets the instance of the EventSingleton class.
+     * @return
+     */
     public static synchronized EventSingleton getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new EventSingleton();
         }
         return instance;
@@ -35,14 +39,21 @@ public class EventSingleton {
         timeIndex = 0;
     }
 
+    /**
+     * Cycles through the day and weather by 1.
+     */
     public void advanceCycles() {
         timeIndex = (timeIndex + 1) % dayNightCycle.length;
         isDay = dayNightCycle[timeIndex];
-        if(isDay) {
+        if (isDay) {
             weatherIndex = (weatherIndex + 1) % weatherCycle.length;
         }
     }
 
+    /**
+     * Cycles through day and weather by a num.
+     * @param numTicks days cycled
+     */
     public void simulateTicks(int numTicks) {
         for (int i = 0; i < numTicks; i++) {
             advanceCycles();

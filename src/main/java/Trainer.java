@@ -1,15 +1,20 @@
-import codemons.*;
+import codemons.Codemon;
+import codemons.CodemonFactory;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Trainer {
     public String name;
     public int money;
     public List<Codemon> team;
-    private static final int MAX_TEAM_SIZE=6;
+    private static final int MAX_TEAM_SIZE = 6;
 
+    /**
+     * Creates a trainer with a name.
+     * @param name name
+     */
     public Trainer(String name) {
         this.name = name;
         money = 0;
@@ -17,8 +22,11 @@ public class Trainer {
         addCodemon();
     }
 
+    /**
+     * Adds a random codemon to the team.
+     */
     public void addCodemon() {
-        if(team.size() < MAX_TEAM_SIZE) {
+        if (team.size() < MAX_TEAM_SIZE) {
             Codemon newCodemon = getRandomCodemon();
             team.add(newCodemon);
             System.out.println(newCodemon.getName() + " has joined the team!");
@@ -27,6 +35,10 @@ public class Trainer {
         }
     }
 
+    /**
+     * Gets a random codemon.
+     * @return
+     */
     public Codemon getRandomCodemon() {
         String[] types = {"fire", "water", "grass"};
         Random rand = new Random();
@@ -34,16 +46,23 @@ public class Trainer {
         return CodemonFactory.createCodemon(types[randomIndex]);
     }
 
+    /**
+     * Checks if the team still has an alive codemon.
+     * @return
+     */
     public boolean hasAliveCodemons() {
         boolean alive = false;
-        for(Codemon codemon: team) {
-            if(!codemon.isFainted()) {
+        for (Codemon codemon: team) {
+            if (!codemon.isFainted()) {
                 alive = true;
             }
         }
         return alive;
     }
 
+    /**
+     * Prints the trainer's current team.
+     */
     public void printTeam() {
         System.out.println("Trainer " + name + "'s Team:");
         for (Codemon codemon : team) {
@@ -55,6 +74,10 @@ public class Trainer {
         return name;
     }
 
+    /**
+     * Returns the first codemon thats alive.
+     * @return
+     */
     public Codemon getCurrentCodemon() {
         for (Codemon codemon : team) {
             if (!codemon.isFainted()) {
@@ -64,17 +87,27 @@ public class Trainer {
         return null;
     }
 
+    /**
+     * Returns the first codemon.
+     * @return
+     */
     public Codemon getTopCodemon() {
         return team.get(0);
     }
 
+    /**
+     * Gives exp to the whole team evenly.
+     * @param exp exp
+     */
     public void gainExpForAllCodemons(int exp) {
-        //System.out.println(name + " gained " + exp + "exp.");
         for (Codemon codemon : team) {
             codemon.gainExp(exp);
         }
     }
 
+    /**
+     * Heals the entire team to full.
+     */
     public void healAllCodemons() {
         for (Codemon codemon : team) {
             codemon.setFainted(false);
@@ -82,6 +115,10 @@ public class Trainer {
         }
     }
 
+    /**
+     * Sets the whole team's codemon level.
+     * @param level level
+     */
     public void setTeamLevel(int level) {
         for (Codemon codemon : team) {
             codemon.setLevel(level);

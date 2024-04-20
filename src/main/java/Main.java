@@ -1,13 +1,11 @@
-import codemons.*;
-import attacks.*;
 
 public class Main {
-
-
-
-    
+    /**
+     * Simulates a simple codemon game.
+     * @param args arguement string
+     */
     public static void main(String[] args) {       
-        EventSingleton eventSingleton = EventSingleton.getInstance();
+        final EventSingleton eventSingleton = EventSingleton.getInstance();
         Trainer red = new Trainer("Red");
         red.addCodemon();
         red.printTeam();
@@ -16,12 +14,8 @@ public class Main {
         blue.printTeam();
         System.out.println();
         Game game = new Game(red, blue, eventSingleton);
-        game.start(100); 
+        game.start(3); 
         red.printTeam();
         blue.printTeam();
-        
-        // for(int i = 0; i < 100; i++) {
-            
-        // }
     }
 }

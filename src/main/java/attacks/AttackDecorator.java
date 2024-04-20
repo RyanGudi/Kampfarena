@@ -1,10 +1,16 @@
 package attacks;
-import codemons.*;
 
-public class AttackDecorator extends Codemon{
+import codemons.Codemon;
+
+public class AttackDecorator extends Codemon {
     protected Codemon codemon;
     protected Attack newAttack;
 
+    /**
+     * Decorates a codemon and dynamically gives it a new move.
+     * @param codemon codemon
+     * @param newAttack new attack
+     */
     public AttackDecorator(Codemon codemon, Attack newAttack) {
         super(codemon.getAttack(), codemon.getDefense(), codemon.getHealth(), codemon.getExpCap());
         this.codemon = codemon;
@@ -34,7 +40,7 @@ public class AttackDecorator extends Codemon{
     }
 
     @Override
-    public void levelUp(){ 
+    public void levelUp() { 
         codemon.levelUp();
     }
 
@@ -110,10 +116,10 @@ public class AttackDecorator extends Codemon{
 
     @Override
     public String toString() {
-        String response = codemon.getName() + " (Level:  " + codemon.getLevel() +") - ";
-        if(codemon.isFainted()) {
+        String response = codemon.getName() + " (Level:  " + codemon.getLevel() + ") - ";
+        if (codemon.isFainted()) {
             response += "Fainted";
-        }else {
+        } else {
             response += "Healthy";
         }
         return response;

@@ -39,6 +39,10 @@ public class EventSingleton {
         timeIndex = 0;
     }
 
+    public void restartWeatherCycle() {
+        weatherIndex = 0;
+    }
+
     /**
      * Cycles through the day and weather by 1.
      */

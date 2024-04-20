@@ -61,7 +61,7 @@ public class Battle {
         Trainer opponent = enemyTrainer;
 
         while (player.hasAliveCodemons() && enemyTrainer.hasAliveCodemons()) {
-            System.out.println(currentTrainer.getName() + "'s turn:");
+            System.out.println("\n" + currentTrainer.getName() + "'s turn:");
             Codemon currentCodemon = currentTrainer.getCurrentCodemon();
             Codemon opponentCodemon = opponent.getCurrentCodemon();
 
@@ -103,7 +103,7 @@ public class Battle {
         System.out.println("Wild Battle started with a wild " + wildCodemon.getName() + "!");
 
         while (player.hasAliveCodemons() && !wildCodemon.isFainted()) {
-            System.out.println(player.getName() + "'s turn:");
+            System.out.println("\n" + player.getName() + "'s turn:");
             Codemon playerCodemon = player.getCurrentCodemon();
 
             //Simulate the trainer's move

@@ -67,6 +67,7 @@ public class Trainer {
         for (Codemon codemon : team) {
             System.out.println(codemon);
         }
+        System.out.println();
     }
 
     public String getName() {

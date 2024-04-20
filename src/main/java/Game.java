@@ -44,8 +44,7 @@ public class Game {
                 }
                 eventSingleton.advanceCycles();
             }
-            System.out.println("Day: " + eventSingleton.isDay() 
-                                + " Weather: " + eventSingleton.getWeatherCondition());
+            System.out.println(" Weather: " + eventSingleton.getWeatherCondition());
             if (!eventSingleton.isDay() || !player.hasAliveCodemons()) {
                 eventSingleton.restartDayCycle();
                 System.out.println("Nighttime Begins");
@@ -53,8 +52,11 @@ public class Game {
                 player.healAllCodemons();
                 enemy.healAllCodemons();
                 int enemyLevel = random.nextInt(player.getTopCodemon().getLevel() + 1);
-                System.out.println("Enemy level: " + enemyLevel);
                 enemy.setTeamLevel(enemyLevel);
+            }
+            if (random.nextInt(5) > 3) {
+                player.addCodemon();
+                enemy.addCodemon();
             }
         }
     }
@@ -71,7 +73,9 @@ public class Game {
             System.out.println("Congratulations! You defeated " + opponent.getName() + "!");
             int expReward = 500;
             player.gainExpForAllCodemons(expReward);
-            System.out.println("You earned " + expReward + " experience points!");
+            System.out.println("You earned " + expReward + " experience points!\n");
+            player.printTeam();
+            opponent.printTeam();
         } else {
             System.out.println("You lost the battle. Better luck next time!");
         }
@@ -89,7 +93,8 @@ public class Game {
             System.out.println("You defeated the wild " + wildCodemon.getName() + "!");
             int expReward = 250;
             player.gainExpForAllCodemons(expReward);
-            System.out.println("You earned " + expReward + " experience points!");
+            System.out.println("You earned " + expReward + " experience points!\n");
+            player.printTeam();
         } else {
             System.out.println("All your codemons have fainted. You were defeated by the wild " 
                                 + wildCodemon.getName() + "!");

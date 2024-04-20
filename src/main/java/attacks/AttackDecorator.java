@@ -118,7 +118,7 @@ public class AttackDecorator extends Codemon {
         if (codemon.isFainted()) {
             response += "Fainted";
         } else {
-            response += "Healthy";
+            response += "Healthy (" + codemon.getHp() + "/" + codemon.getHealth() + ")";
         }
         return response;
     }

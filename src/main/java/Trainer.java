@@ -7,9 +7,9 @@ import java.util.Random;
 
 public class Trainer {
     public String name;
-    public int money;
     public List<Codemon> team;
     private static final int MAX_TEAM_SIZE = 6;
+    private Random random;
 
     /**
      * Creates a trainer with a name.
@@ -17,8 +17,8 @@ public class Trainer {
      */
     public Trainer(String name) {
         this.name = name;
-        money = 0;
         team = new ArrayList<>();
+        random = new Random();
         addCodemon();
     }
 
@@ -41,8 +41,7 @@ public class Trainer {
      */
     public Codemon getRandomCodemon() {
         String[] types = {"fire", "water", "grass"};
-        Random rand = new Random();
-        int randomIndex = rand.nextInt(3);
+        int randomIndex = random.nextInt(3);
         return CodemonFactory.createCodemon(types[randomIndex]);
     }
 

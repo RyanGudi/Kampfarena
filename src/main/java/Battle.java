@@ -8,6 +8,7 @@ public class Battle {
     private Trainer enemyTrainer;
     private Codemon wildCodemon;
     private EventSingleton eventSingleton;
+    private Random random;
 
     /**
      * Constructs a battle against an enemy trainer.
@@ -16,9 +17,10 @@ public class Battle {
      * @param eventSingleton event cycle
      */
     public Battle(Trainer player, Trainer enemyTrainer, EventSingleton eventSingleton) {
-        this.player = player;
-        this.enemyTrainer = enemyTrainer;
+        setPlayer(player);
+        setEnemyTrainer(enemyTrainer);
         this.eventSingleton = eventSingleton;
+        random = new Random();
     }
 
 
@@ -29,9 +31,10 @@ public class Battle {
      * @param eventSingleton event cycle
      */
     public Battle(Trainer player, Codemon wildCodemon, EventSingleton eventSingleton) {
-        this.player = player;
-        this.wildCodemon = wildCodemon;
+        setPlayer(player);
+        setWildCodemon(wildCodemon);
         this.eventSingleton = eventSingleton;
+        random = new Random();
     }
 
     /**
@@ -139,7 +142,6 @@ public class Battle {
      * @return
      */
     public int calculateDamage(Attack move, Codemon attacker, Codemon defender) {
-        Random random = new Random();
         int damage;
         double effectiveness;
         //Miss Chance
@@ -207,5 +209,29 @@ public class Battle {
             effectiveness *= 1.25;
         }
         return effectiveness;
+    }
+
+    /**
+     * Sets current enemy trainer.
+     * @param enemyTrainer enemy
+     */
+    private void setEnemyTrainer(Trainer enemyTrainer) {
+        this.enemyTrainer = enemyTrainer;
+    }
+
+    /**
+     * Sets current player trainer.
+     * @param player player
+     */
+    private void setPlayer(Trainer player) {
+        this.player = player;
+    }
+
+    /**
+     * Sets current wild codemon.
+     * @param wildCodemon wild codemon
+     */
+    private void setWildCodemon(Codemon wildCodemon) {
+        this.wildCodemon = wildCodemon;
     }
 }

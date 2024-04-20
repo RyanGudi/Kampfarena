@@ -1,5 +1,7 @@
 package attacks;
 
+import java.util.Objects;
+
 public class Attack {
     protected String name;
     protected int power;
@@ -64,11 +66,19 @@ public class Attack {
         if (this == obj) {
             return true;
         }
+        if (!(obj instanceof Attack)) {
+            return false;
+        }
         Attack other = (Attack) obj;
         return power == other.power 
                     && crit == other.crit 
                     && accuracy == other.accuracy 
                     && name.equals(other.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, power, crit, accuracy);
     }
 
     @Override

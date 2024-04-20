@@ -4,7 +4,6 @@ import codemons.Codemon;
 
 public class AttackDecorator extends Codemon {
     protected Codemon codemon;
-    protected Attack newAttack;
 
     /**
      * Decorates a codemon and dynamically gives it a new move.
@@ -13,8 +12,7 @@ public class AttackDecorator extends Codemon {
      */
     public AttackDecorator(Codemon codemon, Attack newAttack) {
         super(codemon.getAttack(), codemon.getDefense(), codemon.getHealth(), codemon.getExpCap());
-        this.codemon = codemon;
-        this.newAttack = newAttack;
+        setCodemon(codemon);
         addAttack(newAttack);
     }
 
@@ -123,5 +121,13 @@ public class AttackDecorator extends Codemon {
             response += "Healthy";
         }
         return response;
+    }
+
+    /**
+     * Sets current codemon.
+     * @param codemon codemon
+     */
+    private void setCodemon(Codemon codemon) {
+        this.codemon = codemon;
     }
 }

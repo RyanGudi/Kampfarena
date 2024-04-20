@@ -18,6 +18,7 @@ public abstract class Codemon {
     protected int levelCap;
     protected int hp;
     protected boolean fainted;
+    protected Random random;
 
     /**
      * Initializes a new codemon with given stats.
@@ -35,6 +36,7 @@ public abstract class Codemon {
         hp = health;
         fainted = false;
         levelCap = 100;
+        random = new Random();
     }
 
     /**
@@ -88,8 +90,7 @@ public abstract class Codemon {
         if (attacks.isEmpty()) {
             return null;
         } else {
-            Random rand = new Random();
-            int randomIndex = rand.nextInt(attacks.size());
+            int randomIndex = random.nextInt(attacks.size());
             return attacks.get(randomIndex);
         }
     }

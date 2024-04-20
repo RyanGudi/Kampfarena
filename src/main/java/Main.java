@@ -14,7 +14,7 @@ public class Main {
         blue.printTeam();
         System.out.println();
         Game game = new Game(red, blue, eventSingleton);
-        game.start(3); 
+        game.start(5); 
         red.printTeam();
         blue.printTeam();
     }

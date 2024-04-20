@@ -6,6 +6,7 @@ public class Game {
     private Trainer player;
     private Trainer enemy;
     private EventSingleton eventSingleton;
+    private Random random;
 
     /**
      * Initializes a new game against an enemy trainer.
@@ -14,9 +15,10 @@ public class Game {
      * @param eventSingleton day/weather cycle
      */
     public Game(Trainer player, Trainer enemy, EventSingleton eventSingleton) {
-        this.player = player;
-        this.enemy = enemy;
+        setPlayer(player);
+        setEnemyTrainer(enemy);
         this.eventSingleton = eventSingleton;
+        random = new Random();
     }
 
     /**
@@ -25,7 +27,6 @@ public class Game {
      */
     public void start(int days) {
         System.out.println("Welcome to the world of Codemon!");
-        Random random = new Random();
         for (int i = 1; i <= days; i++) {
             System.out.println("\n\nDay " + i);
             while (player.hasAliveCodemons() && eventSingleton.isDay()) {
@@ -102,7 +103,6 @@ public class Game {
     public Codemon getRandomWildCodemon() {
         Codemon wildCodemon;
         String[] types = {"fire", "water", "grass"};
-        Random random = new Random();
         int level = player.getCurrentCodemon().getLevel();
         System.out.println("Player Level : " + level);
         wildCodemon = CodemonFactory.createCodemon(types[random.nextInt(3)]);
@@ -110,5 +110,19 @@ public class Game {
         return wildCodemon;
     }
 
+    /**
+     * Sets current enemy trainer.
+     * @param enemyTrainer enemy
+     */
+    private void setEnemyTrainer(Trainer enemyTrainer) {
+        this.enemy = enemyTrainer;
+    }
 
+    /**
+     * Sets current player trainer.
+     * @param player player
+     */
+    private void setPlayer(Trainer player) {
+        this.player = player;
+    }
 }

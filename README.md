@@ -28,6 +28,8 @@ Singleton Design Pattern - Global instance of Day/Night/Weather cycles
 
 -Weather events boosts the corresponding code-a-mon's attack power
 
+
+
 Spotbugs Report:
 
 
